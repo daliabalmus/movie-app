@@ -1,17 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { GridThemeProvider } from "styled-bootstrap-grid";
+import { ThemeProvider } from "styled-components";
+import { gridTheme } from "./modules/core/theme/theme";
+import { initialTheme } from "./modules/core/theme/theme";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import Routes from "./modules/core/routes/Routes";
+
+const App = () => (
+  <BrowserRouter>
+    <ThemeProvider theme={initialTheme}>
+      <GridThemeProvider gridTheme={gridTheme}>
+        <Routes />
+      </GridThemeProvider>
+    </ThemeProvider>
+  </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+render(<App />, document.getElementById("root"));
