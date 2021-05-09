@@ -28,7 +28,7 @@ const Home = (props) => {
 
   return (
     <Container>
-      <HeaderUI>Search movie</HeaderUI>
+      <HeaderUI>Search show</HeaderUI>
 
       <SearchFieldUI onSubmit={(e) => filterShows(e)}>
         <InputUI
