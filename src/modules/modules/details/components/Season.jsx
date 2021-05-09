@@ -24,7 +24,7 @@ const Season = ({ season, episodes }) => {
 
   const displayEpisodes = () => {
     return episodes.map((episode, index) => (
-      <Col sm={6} lg={4} xl={3} key={index}>
+      <Col sm={6} lg={4} key={index}>
         <DivUI mb="12" className="hover-details">
           <DivUI className="overlay">
             <HeaderUI size="18" align="left" py="0" mb="6">
@@ -46,7 +46,11 @@ const Season = ({ season, episodes }) => {
               </SpanUI>
             </DivUI>
           </DivUI>
-          <ImgUI src={episode.image.medium}></ImgUI>
+          {episode?.image?.medium ? (
+            <ImgUI src={episode?.image?.medium} />
+          ) : (
+            <ImgUI src="https://via.placeholder.com/364x204?text=No+image+to+show" />
+          )}
         </DivUI>
       </Col>
     ));

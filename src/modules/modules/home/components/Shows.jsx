@@ -3,6 +3,7 @@ import axios from "axios";
 import { Col, Row } from "styled-bootstrap-grid";
 import ShowCard from "../../../core/components/ShowCard";
 import ReachBottom from "../../../core/components/hooks/ReachBottom";
+import Loader from "../../../core/components/Loader";
 
 const Shows = ({ history, filteredShows }) => {
   const reachBottom = ReachBottom();
@@ -11,6 +12,7 @@ const Shows = ({ history, filteredShows }) => {
     allShows: [],
     filteredShows: [],
     searchPageNumber: 0,
+    loading: false,
   });
 
   const getShows = async (pageNumber) => {
@@ -18,7 +20,11 @@ const Shows = ({ history, filteredShows }) => {
     await axios.get(url).then((res) => {
       const movies = res.data;
 
-      setShows({ ...shows, allShows: [...shows.allShows, ...movies] });
+      setShows({
+        ...shows,
+        allShows: [...shows.allShows, ...movies],
+        loading: false,
+      });
     });
   };
 
@@ -29,12 +35,14 @@ const Shows = ({ history, filteredShows }) => {
   }, [reachBottom]);
 
   useEffect(() => {
+    setShows({ ...shows, loading: true });
     (async () => {
-      getShows(shows.searchPageNumber);
+      await getShows(shows.searchPageNumber);
     })();
   }, [shows.searchPageNumber]);
 
   const displayShow = (show, index) => {
+    if (show.loading) return <Loader />;
     return (
       <Col sm={6} md={4} lg={3} key={index}>
         <ShowCard show={show} history={history} />
