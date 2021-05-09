@@ -4,11 +4,27 @@ export const DivUI = styled.div`
   width: ${(props) => (props.w ? props.w + "px" : "100%")};
   height: ${(props) => (props.h ? props.h + "px" : "auto")};
   text-align: ${(props) => (props.align ? props.align : "left")};
+
+  ${(props) =>
+    props.alignMd &&
+    css`
+      @media (min-width: 768px) {
+        text-align: ${props.alignMd};
+      }
+    `}
+
   position: relative;
   ${(props) =>
     props.mb &&
     css`
       margin-bottom: ${props.mb}px;
+    `}
+  ${(props) =>
+    props.mbMd &&
+    css`
+      @media (min-width: 768px) {
+        margin-bottom: ${props.mbMd}px;
+      }
     `}
   ${(props) =>
     props.mt &&
@@ -37,6 +53,13 @@ export const DivUI = styled.div`
     css`
       display: flex;
     `};
+  ${(props) =>
+    props.dFlexMd &&
+    css`
+      @media (min-width: 768px) {
+        display: flex;
+      }
+    `}
   ${(props) =>
     props.alignCenter &&
     css`

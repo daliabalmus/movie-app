@@ -47,13 +47,13 @@ const Details = (props) => {
           </Col>
           <Col md={show.details?.image ? 9 : 12}>
             <DivUI pl="12">
-              <DivUI dFlex justifyBetween>
-                <HeaderUI align="left" py="0" mb="24">
+              <DivUI dFlexMd justifyBetween>
+                <HeaderUI align="left" py="24" pyMd="0" mb="24">
                   {show.details?.name}
                 </HeaderUI>
 
                 {show.details?.rating?.average && (
-                  <DivUI w="auto" align="right">
+                  <DivUI w="auto" alignMd="right" mbMd="0" mb="24">
                     <StarsUI rating={show.details?.rating?.average} />
                     <div>
                       <SpanUI color={initialTheme.light300} size="20">

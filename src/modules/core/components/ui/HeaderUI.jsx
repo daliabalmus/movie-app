@@ -14,6 +14,14 @@ export const HeaderUI = styled.h1`
       padding-bottom: ${props.py}px;
     `}
   ${(props) =>
+    props.pyMd &&
+    css`
+      @media (min-width: 768px) {
+        padding-top: ${props.pyMd}px;
+        padding-bottom: ${props.pyMd}px;
+      }
+    `}
+  ${(props) =>
     props.mb &&
     css`
       margin-bottom: ${props.mb}px;

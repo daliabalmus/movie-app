@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const ReachBottom = () => {
   const [reachBottom, setReachBottom] = useState(false);
@@ -20,7 +20,7 @@ const ReachBottom = () => {
       );
       const windowBottom = windowHeight + window.pageYOffset;
 
-      if (windowBottom >= docHeight - 1) {
+      if (windowBottom >= docHeight - 100) {
         setReachBottom(true);
       } else {
         setReachBottom(false);

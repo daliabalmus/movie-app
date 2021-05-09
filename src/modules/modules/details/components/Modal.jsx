@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   ModalCloseTextUI,
-  ModalCloseUI,
   ModalDescriptionUI,
   ModalInnerUI,
   ModalTitleUI,
@@ -20,14 +19,10 @@ const Modal = ({ modal, setModal, episode }) => {
     >
       <ModalInnerUI onClick={(e) => e.stopPropagation()}>
         <Row>
-          <Col md={5}>
+          <Col md={12}>
             <ImgUI src={episode?.image?.original} alt="Show" />
           </Col>
-          <Col md={7}>
-            <ModalCloseUI onClick={() => setModal({ ...modal, opened: false })}>
-              &#10005;
-            </ModalCloseUI>
-
+          <Col md={12}>
             <ModalTitleUI>{episode.name}</ModalTitleUI>
             <ModalDescriptionUI
               dangerouslySetInnerHTML={{ __html: episode.summary }}
