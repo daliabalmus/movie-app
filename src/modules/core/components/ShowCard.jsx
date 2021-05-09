@@ -14,7 +14,7 @@ const ShowCard = ({ show, history }) => {
 
     const showSummaryText = showDescriptionEl.innerText;
 
-    const descriptionToShow = showSummaryText.substr(0, 90) + "...";
+    const descriptionToShow = showSummaryText.substr(0, 100) + "...";
 
     showSummaryRef.current.innerHTML = descriptionToShow;
   }, [show]);

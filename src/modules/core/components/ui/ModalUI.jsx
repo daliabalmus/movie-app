@@ -10,7 +10,8 @@ export const ModalInnerUI = styled.div`
 `;
 export const ModalTitleUI = styled.h2`
   color: ${initialTheme.light};
-  margin: 12px 0;
+  margin-top: 24px;
+  margin-bottom: 12px;
 `;
 export const ModalDescriptionUI = styled.p`
   color: ${initialTheme.light};
