@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Col, Row } from "styled-bootstrap-grid";
 import ShowCard from "../../../core/components/ShowCard";
+import ReachBottom from "../../../core/components/hooks/ReachBottom";
 
 const Shows = ({ history, filteredShows }) => {
+  const reachBottom = ReachBottom();
+
   const [shows, setShows] = useState({
     allShows: [],
     filteredShows: [],
-    searchPageNumber: 0,
+    searchPageNumber: 1,
   });
 
   const getShows = async (pageNumber) => {
@@ -15,15 +18,21 @@ const Shows = ({ history, filteredShows }) => {
     await axios.get(url).then((res) => {
       const movies = res.data;
 
-      setShows({ ...shows, allShows: [...movies] });
+      setShows({ ...shows, allShows: [...shows.allShows, ...movies] });
     });
   };
 
   useEffect(() => {
+    if (reachBottom && filteredShows.length === 0) {
+      setShows({ ...shows, searchPageNumber: shows.searchPageNumber + 1 });
+    }
+  }, [reachBottom]);
+
+  useEffect(() => {
     (async () => {
-      await getShows(shows.searchPageNumber);
+      getShows(shows.searchPageNumber);
     })();
-  }, []);
+  }, [shows.searchPageNumber]);
 
   const displayShow = (show, index) => {
     return (
