@@ -33,28 +33,31 @@ const DetailsList = ({ show }) => {
       )}
 
       {/* Schedule */}
-      {show?.schedule && (
-        <DivUI dFlex>
-          <DivUI w="200">
-            <SpanUI>Schedule</SpanUI>
-          </DivUI>
-          <DivUI>
-            <DivUI mb="12">
-              <SpanUI>
-                {show?.schedule?.days?.length === 1 ? "Day:" : "Days:"}
-              </SpanUI>{" "}
-              <SpanUI color={initialTheme.light}>
-                {show?.schedule?.days?.join(", ")}
-              </SpanUI>
+      {show?.schedule &&
+        (show?.schedule?.days.length > 0 || show?.schedule?.time !== "") && (
+          <DivUI dFlex>
+            <DivUI w="200">
+              <SpanUI>Schedule</SpanUI>
             </DivUI>
-
             <DivUI>
-              <SpanUI>Time:</SpanUI>{" "}
-              <SpanUI color={initialTheme.light}>{show?.schedule?.time}</SpanUI>
+              <DivUI mb="12">
+                <SpanUI>
+                  {show?.schedule?.days?.length === 1 ? "Day:" : "Days:"}
+                </SpanUI>{" "}
+                <SpanUI color={initialTheme.light}>
+                  {show?.schedule?.days?.join(", ")}
+                </SpanUI>
+              </DivUI>
+
+              <DivUI>
+                <SpanUI>Time:</SpanUI>{" "}
+                <SpanUI color={initialTheme.light}>
+                  {show?.schedule?.time}
+                </SpanUI>
+              </DivUI>
             </DivUI>
           </DivUI>
-        </DivUI>
-      )}
+        )}
     </>
   );
 };

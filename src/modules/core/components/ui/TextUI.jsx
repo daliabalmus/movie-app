@@ -14,9 +14,15 @@ export const TextUI = styled.p`
 
 export const SpanUI = styled.span`
   color: ${(props) => (props.color ? props.color : initialTheme.light600)};
+  font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "normal")};
   ${(props) =>
     props.size &&
     css`
       font-size: ${props.size}px;
+    `}
+  ${(props) =>
+    props.pointer &&
+    css`
+      cursor: pointer;
     `}
 `;

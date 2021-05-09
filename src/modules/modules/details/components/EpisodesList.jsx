@@ -41,13 +41,16 @@ const EpisodesList = ({ showId }) => {
     if (!episodes.list) return;
 
     const rows = [];
+    let key = 0;
 
     for (let i = 0; i < episodes.maxSeason; i++) {
       const episodesThisSeason = episodes.list.filter(
         (ep) => ep.season === i + 1
       );
-
-      rows.push(<Season season={i + 1} episodes={episodesThisSeason} />);
+      key++;
+      rows.push(
+        <Season season={i + 1} episodes={episodesThisSeason} key={key} />
+      );
     }
 
     return rows;

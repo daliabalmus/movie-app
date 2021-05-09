@@ -39,28 +39,30 @@ const Details = (props) => {
   ) : (
     <Container>
       <DivUI py="96">
-        <Row>
-          <Col sm={3}>
+        <Row justifyContent="center">
+          <Col col={6} md={3}>
             {show.details?.image && (
               <ImgUI src={show.details?.image?.original} alt="Show" />
             )}
           </Col>
-          <Col col>
+          <Col md={show.details?.image ? 9 : 12}>
             <DivUI pl="12">
               <DivUI dFlex justifyBetween>
                 <HeaderUI align="left" py="0" mb="24">
                   {show.details?.name}
                 </HeaderUI>
 
-                <DivUI w="auto" align="right">
-                  <StarsUI rating={show.details?.rating?.average} />
-                  <div>
-                    <SpanUI color={initialTheme.light300} size="20">
-                      {show.details?.rating?.average}
-                    </SpanUI>
-                    <SpanUI> / 10</SpanUI>
-                  </div>
-                </DivUI>
+                {show.details?.rating?.average && (
+                  <DivUI w="auto" align="right">
+                    <StarsUI rating={show.details?.rating?.average} />
+                    <div>
+                      <SpanUI color={initialTheme.light300} size="20">
+                        {show.details?.rating?.average}
+                      </SpanUI>
+                      <SpanUI> / 10</SpanUI>
+                    </div>
+                  </DivUI>
+                )}
               </DivUI>
 
               <TextUI

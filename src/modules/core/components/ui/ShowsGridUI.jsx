@@ -1,14 +1,22 @@
 import styled from "styled-components";
 import { initialTheme } from "../../theme/theme";
 
-export const ShowCardUI = styled.div`
-  border: 1px solid ${initialTheme.dark100};
-  padding: 12px;
+export const ShowNameUI = styled.h4`
+  color: ${initialTheme.light};
   margin-bottom: 12px;
-  cursor: pointer;
+  margin-top: 12px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: flex-end;
+  min-height: 50px;
 `;
 
-export const ShowNameUI = styled.h5`
-  color: ${initialTheme.light};
-  margin-bottom: 0;
+export const ShowCardUI = styled.div`
+  margin-bottom: 56px;
+  cursor: pointer;
+  &:hover {
+    ${ShowNameUI} {
+      color: ${initialTheme.primary};
+    }
+  }
 `;

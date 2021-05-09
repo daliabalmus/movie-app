@@ -3,7 +3,7 @@ import axios from "axios";
 import { Col, Row } from "styled-bootstrap-grid";
 import ShowCard from "../../../core/components/ShowCard";
 
-const Shows = (props) => {
+const Shows = ({ history, filteredShows }) => {
   const [shows, setShows] = useState({
     allShows: [],
     filteredShows: [],
@@ -25,16 +25,24 @@ const Shows = (props) => {
     })();
   }, []);
 
+  const displayShow = (show, index) => {
+    return (
+      <Col col={3} key={index}>
+        <ShowCard show={show} history={history} />
+      </Col>
+    );
+  };
+
   return (
     <div style={{ paddingBottom: "96px" }}>
       <Row>
-        {shows.allShows?.map((show, index) => {
-          return (
-            <Col col={3} key={index}>
-              <ShowCard show={show} history={props.history} />
-            </Col>
-          );
-        })}
+        {filteredShows.length > 0
+          ? filteredShows.map((show, index) => {
+              return displayShow(show.show, index);
+            })
+          : shows.allShows?.map((show, index) => {
+              return displayShow(show, index);
+            })}
       </Row>
     </div>
   );
