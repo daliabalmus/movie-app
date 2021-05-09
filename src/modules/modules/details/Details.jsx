@@ -10,6 +10,7 @@ import { StarsUI } from "../../core/components/ui/StarsUI";
 import { initialTheme } from "../../core/theme/theme";
 import Loader from "../../core/components/Loader";
 import EpisodesList from "./components/EpisodesList";
+import { ButtonUI } from "../../core/components/ui/ButtonUI";
 
 const Details = (props) => {
   const showId = props.match.params.id;
@@ -39,6 +40,11 @@ const Details = (props) => {
   ) : (
     <Container>
       <DivUI py="96">
+        <DivUI mb="24">
+          <ButtonUI outline onClick={() => props.history.push("/home")}>
+            Go back
+          </ButtonUI>
+        </DivUI>
         <Row justifyContent="center">
           <Col col={6} md={3}>
             {show.details?.image && (

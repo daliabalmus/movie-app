@@ -8,7 +8,8 @@ export const NavbarUI = styled.div`
   box-shadow: 0px 1px 3px ${initialTheme.shadowLight};
   a {
     color: ${initialTheme.light300};
-    padding: 16px;
+    font-size: 14px;
+    padding-right: 32px;
     text-decoration: none;
     &:hover {
       color: ${initialTheme.primary};
