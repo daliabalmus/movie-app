@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { SpanUI } from "./ui/TextUI";
 import { initialTheme } from "../theme/theme";
 
 const FooterUI = styled.footer`
@@ -9,7 +8,7 @@ const FooterUI = styled.footer`
   justify-content: center;
   bottom: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   background-color: ${initialTheme.dark200};
   margin-top: auto;
   p {

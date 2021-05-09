@@ -20,7 +20,7 @@ export const LayoutInnerUI = styled.div`
 
 export const ContentUI = styled.div`
   padding: 0px;
-  height: calc(100% - 80px);
+  height: calc(100% - 60px);
   width: 100%;
   transition: 0.2s ease-in-out;
 `;
