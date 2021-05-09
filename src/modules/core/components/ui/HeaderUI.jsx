@@ -18,4 +18,9 @@ export const HeaderUI = styled.h1`
     css`
       margin-bottom: ${props.mb}px;
     `}
+  ${(props) =>
+    props.size &&
+    css`
+      font-size: ${props.size}px;
+    `}
 `;
