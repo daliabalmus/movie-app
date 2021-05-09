@@ -15,8 +15,6 @@ const Home = (props) => {
     loading: false,
   });
 
-  console.log(search);
-
   const filterShows = async (e) => {
     e.preventDefault();
     setSearch({ ...search, loading: true });

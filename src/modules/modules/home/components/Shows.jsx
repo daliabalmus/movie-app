@@ -10,7 +10,7 @@ const Shows = ({ history, filteredShows }) => {
   const [shows, setShows] = useState({
     allShows: [],
     filteredShows: [],
-    searchPageNumber: 1,
+    searchPageNumber: 0,
   });
 
   const getShows = async (pageNumber) => {
