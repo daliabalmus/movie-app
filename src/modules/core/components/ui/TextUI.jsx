@@ -13,7 +13,8 @@ export const TextUI = styled.p`
 `;
 
 export const SpanUI = styled.span`
-  color: ${(props) => (props.color ? props.color : initialTheme.light600)};
+  color: ${(props) =>
+    props.color ? props.color : initialTheme.light600} !important;
   font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "normal")};
   ${(props) =>
     props.size &&

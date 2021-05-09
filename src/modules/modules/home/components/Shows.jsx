@@ -27,7 +27,7 @@ const Shows = ({ history, filteredShows }) => {
 
   const displayShow = (show, index) => {
     return (
-      <Col col={3} key={index}>
+      <Col sm={6} md={4} lg={3} key={index}>
         <ShowCard show={show} history={history} />
       </Col>
     );
